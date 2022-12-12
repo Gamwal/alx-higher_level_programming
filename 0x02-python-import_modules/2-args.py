@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-def count(n):
+if __name__ == "__main__":
+    import sys
+    n = sys.argv[1:]
     if len(n) == 0:
         print("0 arguments.")
     elif len(n) == 1:
@@ -10,8 +12,3 @@ def count(n):
         for i, j in enumerate(n):
             p = i + 1
             print("{}: {} ".format(p, j))
-
-
-if __name__ == "__main__":
-    import sys
-    count(sys.argv[1:])
