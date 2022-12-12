@@ -9,6 +9,6 @@ if __name__ == "__main__":
         print("1: {}".format(n[0]))
     else:
         print("{} arguments:".format(len(n)))
-        for i, j in enumerate(n):
-            p = i + 1
-            print("{}: {} ".format(p, j))
+    for i, j in enumerate(n):
+        p = i + 1
+        print("{}: {} ".format(p, j))
