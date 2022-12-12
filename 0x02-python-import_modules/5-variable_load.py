@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     """
-    import the variable a from 
+    import the variable a from
     variable_load_5 and print
     """
     from variable_load_5 import a
