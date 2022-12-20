@@ -1,5 +1,6 @@
 #!/usr/bin/python3
+""" Define a class Square"""
 class Square():
-    """defines a square with no other parameters"""
+    """defines a square with no attributes"""
     def __init__(self):
        pass
