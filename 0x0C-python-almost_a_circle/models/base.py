@@ -5,6 +5,7 @@
 class Base:
     """The first Base class object"""
 
+
     __nb_objects = 0
 
     def __init__(self, id=None):
