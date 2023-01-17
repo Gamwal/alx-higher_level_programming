@@ -88,7 +88,7 @@ class Rectangle(Base):
         """prints in stdout the rectangle instance with
         the character '#'
         """
-        for l in range(self.y):
+        for n in range(self.y):
             print("\n", end='')
         for i in range(self.height):
             for k in range(self.x):
@@ -101,7 +101,9 @@ class Rectangle(Base):
     def __str__(self):
         """returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
         """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        save = f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
+        save += "{self.width}/{self.height}"
+        return save
 
     def update(self, *args, **kwargs):
         """
