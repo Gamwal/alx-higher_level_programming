@@ -5,6 +5,7 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """Square class that inherits from Rectangle Class"""
+
     def __init__(self, size, x=0, y=0, id=None):
         """Initialize the instance of a Square object.
 
@@ -13,10 +14,6 @@ class Square(Rectangle):
             x (int): x-coord of the square.
             y (int): y-coord of the square.
             id (int): instance id of the square.
-
-        Raises:
-            TypeError: if any of the attribs is not type integer.
-            ValueError: if any of the attribs is less than 0.
         """
         super().__init__(size, size, x, y, id)
 
