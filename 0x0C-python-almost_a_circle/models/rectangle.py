@@ -1,11 +1,23 @@
 #!/usr/bin/python3
-
+"""Rectangle class that inherits from Base class"""
 from models.base import Base
 
+
 class Rectangle(Base):
-
-
+    """Rectangle class that inherits from Base class"""
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Initializes the instance attributes.
+
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+            x (int): x start location of the rectangle.
+            y (int): y start location of the rectangle.
+            id (int): Rectangle id.
+        Raises:
+            TypeError: if any anttribute is not and integer.
+            ValueError: if any attribute is less than 0.
+        """
         self.width = width
         self.height = height
         self.x = x
@@ -14,6 +26,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """set/get the width of the new Rectangle"""
         return self.__width
 
     @width.setter
@@ -27,6 +40,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """set/get the height of the new Rectangle"""
         return self.__height
 
     @height.setter
@@ -40,6 +54,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """set/get the x-coord of the new Rectangle"""
         return self.__x
 
     @x.setter
@@ -53,6 +68,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """set/get the y-coord of the new Rectangle"""
         return self.__y
 
     @y.setter
@@ -65,9 +81,13 @@ class Rectangle(Base):
             self.__y = value
 
     def area(self):
+        """returns the area value of the Rectangle instance"""
         return self.width * self.height
 
     def display(self):
+        """prints in stdout the rectangle instance with
+        the character '#'
+        """
         for l in range(self.y):
             print("\n", end='')
         for i in range(self.height):
@@ -79,10 +99,21 @@ class Rectangle(Base):
                 print("\n", end='')
 
     def __str__(self):
+        """returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        """
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
-        
+        """
+        updates the Rectangle
+        Args:
+            *args (ints): new attribute values where:
+                1st argument should be the id attribute
+                2nd argument should be the width attribute
+                3rd argument should be the height attribute
+                4th argument should be the x attribute
+                5th argument should be the y attribute
+        """
         if args and len(args) != 0:
             keep = 0
             for arg in args:
