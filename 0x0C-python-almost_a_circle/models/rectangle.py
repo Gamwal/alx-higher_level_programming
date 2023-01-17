@@ -102,7 +102,7 @@ class Rectangle(Base):
         """returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
         """
         save = f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
-        save += "{self.width}/{self.height}"
+        save += f"{self.width}/{self.height}"
         return save
 
     def update(self, *args, **kwargs):
