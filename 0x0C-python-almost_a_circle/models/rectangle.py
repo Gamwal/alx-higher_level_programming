@@ -43,26 +43,26 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, x):
-        if type(x) is not int:
+    def x(self, value):
+        if type(value) is not int:
             raise TypeError('x must be an integer')
-        elif x < 0:
+        elif value < 0:
             raise ValueError("x must be >= 0")
         else:
-            self.__x = x
+            self.__x = value
 
     @property
     def y(self):
         return self.__y
 
     @y.setter
-    def y(self, y):
-        if type(y) is not int:
+    def y(self, value):
+        if type(value) is not int:
             raise TypeError('y must be an integer')
-        elif y < 0:
+        elif value < 0:
             raise ValueError("y must be >= 0")
         else:
-            self.__y = y
+            self.__y = value
 
     def area(self):
         return self.width * self.height
@@ -81,24 +81,38 @@ class Rectangle(Base):
     def __str__(self):
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
-    def update(self, *args):
-        if len(args) == 1:
-            self.id = args[0]
-        elif len(args) == 2:
-            self.id = args[0]
-            self.width = args[1]
-        elif len(args) == 3:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-        elif len(args) == 4:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-        else:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-            self.y = args[4]
+    def update(self, *args, **kwargs):
+        
+        if args and len(args) != 0:
+            keep = 0
+            for arg in args:
+                if keep == 0:
+                    if arg is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif keep == 1:
+                    self.width = arg
+                elif keep == 2:
+                    self.height = arg
+                elif keep == 3:
+                    self.x = arg
+                elif keep == 4:
+                    self.y = arg
+                keep += 1
+
+        elif kwargs and len(kwargs) != 0:
+            for key, arg in kwargs.items():
+                if key == 'id':
+                    if arg is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif key == 'width':
+                    self.width = arg
+                elif key == 'height':
+                    self.height = arg
+                elif key == 'x':
+                    self.x == arg
+                elif key == 'y':
+                    self.y == arg
