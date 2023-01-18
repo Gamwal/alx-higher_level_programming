@@ -134,17 +134,18 @@ class Rectangle(Base):
             del keep
 
         elif kwargs and len(kwargs) != 0:
-            for key, value in kwargs.items():
-                if key == 'id':
-                    if value is None:
+            for key, arg in kwargs.items():
+                if key == "id":
+                    if not arg:
                         self.__init__(self.width, self.height, self.x, self.y)
                     else:
-                        self.id = value
-                elif key == 'width':
-                    self.width = value
-                elif key == 'height':
-                    self.height = value
-                elif key == 'x':
-                    self.x == value
-                elif key == 'y':
-                    self.x == value
+                        self.id = arg
+                elif key == "width":
+                    self.width = arg
+                elif key == "height":
+                    self.height = arg
+                elif key == "x":
+                    self.x = arg
+                elif key == "y":
+                    self.y = arg
+
