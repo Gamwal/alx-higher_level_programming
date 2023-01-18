@@ -21,7 +21,7 @@ class Square(Rectangle):
         """returns [Rectangle] (<id>) <x>/<y> - <size>
         """
         save = f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
-        save += f"{self.width}"
+        save += f"{self.size}"
         return save
 
     @property
