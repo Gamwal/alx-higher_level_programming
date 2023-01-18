@@ -148,4 +148,3 @@ class Rectangle(Base):
                     self.x = arg
                 elif key == "y":
                     self.y = arg
-
