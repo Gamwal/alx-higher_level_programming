@@ -18,9 +18,9 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        """returns [Rectangle] (<id>) <x>/<y> - <size>
+        """returns [Square] (<id>) <x>/<y> - <size>
         """
-        save = f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
+        save = f"[Square] ({self.id}) {self.x}/{self.y} - "
         save += f"{self.size}"
         return save
 
@@ -73,3 +73,8 @@ class Square(Rectangle):
                     self.x = arg
                 elif key == "y":
                     self.y = arg
+
+    def to_dictionary(self):
+        """Returns dictionary represenation of a Square"""
+        return {'id': self.id, 'size': self.size,
+                'x': self.x, 'y': self.y}
