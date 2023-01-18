@@ -23,3 +23,15 @@ class Square(Rectangle):
         save = f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
         save += f"{self.width}"
         return save
+
+    @property
+    def size(self):
+        """set/get the size of the Square"""
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        self.width = value
+        self.height = value
+
+

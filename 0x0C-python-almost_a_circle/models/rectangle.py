@@ -49,8 +49,7 @@ class Rectangle(Base):
             raise TypeError('height must be an integer')
         elif height <= 0:
             raise ValueError("height must be > 0")
-        else:
-            self.__height = height
+        self.__height = height
 
     @property
     def x(self):
@@ -63,8 +62,7 @@ class Rectangle(Base):
             raise TypeError('x must be an integer')
         elif value < 0:
             raise ValueError("x must be >= 0")
-        else:
-            self.__x = value
+        self.__x = value
 
     @property
     def y(self):
@@ -77,8 +75,7 @@ class Rectangle(Base):
             raise TypeError('y must be an integer')
         elif value < 0:
             raise ValueError("y must be >= 0")
-        else:
-            self.__y = value
+        self.__y = value
 
     def area(self):
         """returns the area value of the Rectangle instance"""
@@ -107,7 +104,8 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """
-        updates the Rectangle
+        Updates the Rectangle
+
         Args:
             *args (ints): new attribute values where:
                 1st argument should be the id attribute
@@ -133,19 +131,20 @@ class Rectangle(Base):
                 elif keep == 4:
                     self.y = arg
                 keep += 1
+            del keep
 
         elif kwargs and len(kwargs) != 0:
-            for key, arg in kwargs.items():
+            for key, value in kwargs.items():
                 if key == 'id':
-                    if arg is None:
+                    if value is None:
                         self.__init__(self.width, self.height, self.x, self.y)
                     else:
-                        self.id = arg
+                        self.id = value
                 elif key == 'width':
-                    self.width = arg
+                    self.width = value
                 elif key == 'height':
-                    self.height = arg
+                    self.height = value
                 elif key == 'x':
-                    self.x == arg
+                    self.x == value
                 elif key == 'y':
-                    self.y == arg
+                    self.x == value
