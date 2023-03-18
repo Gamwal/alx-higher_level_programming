@@ -15,10 +15,5 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     result = session.query(State).filter(State.name.like('%a%'))
-    """if result is None:
-        print("Nothing")
-    else:
-        print(f"{result.id}: {result.name}")"""
-
     for row in result:
         print("{}: {}".format(row.id, row.name))
