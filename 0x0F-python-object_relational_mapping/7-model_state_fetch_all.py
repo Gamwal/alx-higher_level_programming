@@ -12,6 +12,6 @@ if __name__ == "__main__":
                                    sys.argv[3]), pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    result = session.query(State.id, State.name).all()
+    result = session.query(State).all()
     for item in result:
-        print(f"{item[0]}: {item[1]}")
+        print("{}: {}".format(item.id, item.name))
