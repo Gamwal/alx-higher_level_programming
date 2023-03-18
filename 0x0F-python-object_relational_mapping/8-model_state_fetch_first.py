@@ -15,4 +15,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     result = session.query(State.id, State.name).first()
-    print(f"{result[0]}: {result[1]}")
+    if result is None:
+        print("Nothing")
+    else:
+        print(f"{result[0]}: {result[1]}")
