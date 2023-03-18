@@ -12,7 +12,6 @@ if __name__ == "__main__":
                                    sys.argv[3]), pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    stmt = "SELECT * FROM states ORDER BY id ASC"
-    with engine.connect() as conn:
-        for row in conn.execute(stmt):
-            print(f"{row[0]}: {row[1]}")
+    result = session.query(State.id, State.name).all()
+    for item in result:
+        print(f"{item[0]}: {item[1]}")
