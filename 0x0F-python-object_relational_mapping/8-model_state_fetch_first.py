@@ -5,13 +5,14 @@
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(sys.argv[1], sys.argv[2],
                                    sys.argv[3]), pool_pre_ping=True)
-    stmt = "SELECT * FROM states WHERE id=1"
-    with engine.connect() as conn:
-        for row in conn.execute(stmt):
-            if row is not None:
-                print(f"{row[0]}: {row[1]}")
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    result = session.query(State.id, State.name).first()
+    print(f"{result[0]}: {result[1]}")
