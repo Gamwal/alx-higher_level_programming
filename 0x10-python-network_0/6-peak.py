@@ -21,4 +21,7 @@ def find_peak(lst):
             mid = left  
         elif (lst[right] > lst[mid]):
             mid = right
-    return lst[left]
+    if right == (n - 2):
+        return lst[right]
+    else:
+        return lst[left]
