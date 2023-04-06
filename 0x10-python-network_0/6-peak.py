@@ -10,13 +10,13 @@ def find_peak(lst):
     while (n > 2):
         m = len(lst) // 2
         r = m + 1
-        l = m - 1
-        
-        if (lst[m] > lst[l]) and (lst[m] > lst[r]):
+        left = m - 1
+
+        if (lst[m] > lst[left]) and (lst[m] > lst[r]):
             return lst[m]
-        elif lst[l] >= lst[r]:
+        elif lst[left] >= lst[r]:
             lst = lst[:r]
-        elif lst[r] > lst[l]:
+        elif lst[r] > lst[left]:
             lst = lst[m:]
         n = len(lst)
     return max(lst)
