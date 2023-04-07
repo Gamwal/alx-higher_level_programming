@@ -7,16 +7,18 @@ def find_peak(lst):
     n = len(lst)
     if n == 0:
         return None
-    while (n > 2):
-        m = len(lst) // 2
-        r = m + 1
-        left = m - 1
+    elif n == 1:
+        return lst[0]
+    elif n == 2:
+        return max(lst)
 
-        if (lst[m] > lst[left]) and (lst[m] > lst[r]):
-            return lst[m]
-        elif lst[left] >= lst[r]:
-            lst = lst[:r]
-        elif lst[r] > lst[left]:
-            lst = lst[m:]
-        n = len(lst)
-    return max(lst)
+    m = len(lst) // 2
+    r = m + 1
+    left = m - 1
+
+    if (lst[m] > lst[left]) and (lst[m] > lst[r]):
+        return lst[m]
+    elif lst[left] >= lst[r]:
+        return find_peak(lst[:r])
+    elif lst[r] > lst[left]:
+        return find_peak(lst[m:])
