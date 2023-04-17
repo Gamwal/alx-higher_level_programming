@@ -13,8 +13,8 @@ class Rectangle(BaseGeometry):
 
     def area(self):
         """Implemented area method of the rectangle class object"""
-        return self.width * self.height
+        return self.__width * self.__height
 
     def __str__(self):
         """string magic method"""
-        return "{}/{}".format(self.width, self.height)
+        return "Rectangle {}/{}".format(self.__width, self.__height)
