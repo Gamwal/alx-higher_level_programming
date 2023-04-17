@@ -6,6 +6,7 @@ class BaseGeometry:
     """Empty base class with an area method"""
 
     def __init__(self, width, height):
+        """Init method for the BaseGeometry class"""
         self.width = width
         self.height = self.integer_validator("height", height)
 
