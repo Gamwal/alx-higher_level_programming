@@ -3,7 +3,8 @@
 
 
 class BaseGeometry:
-    """Empty base class with an area method"""
+    """Empty base class with an area method that contains the area
+    and integer_validator methods"""
 
     def __init__(self, width, height):
         """Init method for the BaseGeometry class"""
