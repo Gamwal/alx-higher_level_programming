@@ -7,4 +7,5 @@ class Square(Rectangle):
     """Square object that inherits from Rectangle"""
     def __init__(self, size):
         """initmethod of the Square object that takes in size"""
-        self.__size = BaseGeometry.integer_validator(self, "size", size)
+        self.__size = Rectangle.BaseGeometry.integer_validator(self,
+                                                               "size", size)
