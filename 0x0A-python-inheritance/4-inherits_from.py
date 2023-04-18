@@ -6,6 +6,6 @@
 
 def inherits_from(obj, a_class):
     """function that tests inheritance"""
-    if obj.__class__ == a_class.__class__:
+    if issubclass(obj, a_class) and obj != a_class:
         return False
     return isinstance(obj, a_class)
