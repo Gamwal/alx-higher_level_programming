@@ -20,7 +20,7 @@ class Student:
     def __dict__(self):
         return {'first_name': self.first_name,
                 'last_name': self.last_name,
-                'age': self.age}
+                     'age': self.age}
 
     def to_json(self, attrs=None):
         """Public method to retrieve a dict representation of object"""
@@ -38,7 +38,5 @@ class Student:
 
     def reload_from_json(self, json):
         """Public method to replace all attributes of student"""
-        for key, value in self.__dict__.items():
-            delattr(self, key)
         for key, value in json.items():
             setattr(self, key, value)
