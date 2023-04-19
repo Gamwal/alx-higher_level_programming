@@ -17,20 +17,20 @@ class Student:
         self.age = age
 
     def __dict__(self):
-        return dict({'first_name': self.first_name,
+        return {'first_name': self.first_name,
                      'last_name': self.last_name,
-                     'age': self.age})
+                     'age': self.age}
 
     def to_json(self, attrs=None):
         """Public method to retrieve a dict representation of object"""
         if attrs is None:
-            return self.__dict__().items()
+            return self.__dict__()
         elif attrs is not None and type(attrs) == list:
             for attr in attrs:
                 if type(attr) != str:
-                    return self.__dict__().items()
+                    return self.__dict__()
         new_dict = dict()
-        for key, value in self.__dict__().items():
+        for key, value in self.__dict__():
             if key in attrs:
                 new_dict[key] = value
         return new_dict
