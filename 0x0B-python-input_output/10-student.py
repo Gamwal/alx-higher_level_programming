@@ -24,10 +24,12 @@ class Student:
 
     def to_json(self, attrs=None):
         """Public method to retrieve a dict representation of object"""
-        if attrs != None and type(attrs) == list:
+        if attrs is not None and type(attrs) == list:
             for attr in attrs:
                 if type(attr) != str:
                     return self.__dict__()
-        else:
-            return {key: value for key, value in self.__dict__()
-                    if key in attrs}
+        new_dict = dict()
+        for key, value in self.__dict__():
+            if key in attrs:
+                new_dict[key] = value
+        return new_dict
