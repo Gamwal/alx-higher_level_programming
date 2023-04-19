@@ -20,5 +20,5 @@ if __name__ == "__main__":
             my_obj += sys.argv[1:]
         save_to_json_file(my_obj, 'add_item.json')
     except json.decoder.JSONDecodeError:
-        my_obj = []
+        my_obj = sys.argv[1:]
         save_to_json_file(my_obj, 'add_item.json')
