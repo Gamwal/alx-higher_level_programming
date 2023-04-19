@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-This module is a script that adds all arguments to a Python list,
-and then saves them to a file
-"""
+# script that adds all arguments to a Python list, and then save them to a file
 
 
 import sys
