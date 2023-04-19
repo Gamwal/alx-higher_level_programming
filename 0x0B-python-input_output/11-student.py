@@ -19,8 +19,8 @@ class Student:
     @property
     def __dict__(self):
         return {'first_name': self.first_name,
-                     'last_name': self.last_name,
-                     'age': self.age}
+                'last_name': self.last_name,
+                'age': self.age}
 
     def to_json(self, attrs=None):
         """Public method to retrieve a dict representation of object"""
