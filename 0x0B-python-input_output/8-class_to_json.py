@@ -6,7 +6,6 @@ for JSON serialization of an object
 """
 import json
 
-
 def class_to_json(obj):
     """class to json function"""
     my_obj = json.dumps(obj.__dict__())
