@@ -20,16 +20,9 @@ request.get(options, (err, response, body) => {
           } else {
             completedTasksByUser[todo.userId] = 1;
           }
-        });
-      }
+        }
+      });
+      console.log(completedTasksByUser);
     }
-  });
-console.log('Users with completed tasks:');
-  for (const userId in completedTasksByUser) {
-    console.log(`User ID: ${userId}, Completed Tasks: ${completedTasksByUser[userId]}`);
   }
-} else {
-  console.error('Failed to fetch data. Status code:', response.statusCode);
-}
-}
 });
