@@ -2,6 +2,8 @@
 
 const request = require('request');
 const url = process.argv[2];
+let count = 0;
+const regex = /\/people\/18/i;
 const options = {
   url: url,
   json: true
@@ -12,10 +14,13 @@ request.get(options, (err, response, body) => {
     console.error(err);
   } else {
     if (response.statusCode === 200) {
-      const moviesWithWedgeAntilles = body.results.filter((film) =>
-        film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')
+      body.results.forEach((film) => {
+        if (regex.test(film.characters)) {
+          count++;
+        }
+      }
       );
-      console.log(moviesWithWedgeAntilles.length);
+      console.log(count);
     }
   }
 });
