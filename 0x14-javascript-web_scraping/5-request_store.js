@@ -13,13 +13,13 @@ request.get(options, (err, response, body) => {
   if (err) {
     console.error(err);
   } else {
-    if (response.statusCode === 200 && body !== '') {
+    if (response.statusCode === 200 && body) {
       fs.writeFile(filePath, body, (err) => {
         if (err) {
           console.error(err);
         }
       });
-    } else if (response.statusCode === 200 && body === '') {
+    } else if (response.statusCode === 200 && !body) {
       fs.writeFile(filePath, '', (err) => {
         if (err) {
           console.error(err);
